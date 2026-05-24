@@ -1,0 +1,9 @@
+sources:
+  - name: landing
+    database: dcp_dev_eu  
+    schema: dcp_bronze  
+    tables:
+      - name: orders
+      - name: products
+      - name: reviews
+      - name: users
