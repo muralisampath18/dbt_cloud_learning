@@ -50,11 +50,21 @@ sources:
             tests:        
               - unique
               - not_null
+        tests:
+          - assest_non_negative_check:
+              arguments: 
+                column_names: ["id", "product_id", "rating"]
+                min_value: 1000
+                config: 
+                  severity: warn
+                  alias: users_non_negative_check
+                  
       - name: users
         columns:
           - name: id
             tests:        
               - unique
               - not_null
+
         config: 
           freshness: null
