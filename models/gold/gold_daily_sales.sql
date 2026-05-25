@@ -1,5 +1,4 @@
 {{ config(
-    schema='gold',
     alias ='dbt_gold_daily_sales'
 ) }}
 
