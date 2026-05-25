@@ -1,6 +1,5 @@
 {{ config(
     schema='gold',
-    materialized='table',
     alias ='dbt_gold_daily_sales'
 ) }}
 
