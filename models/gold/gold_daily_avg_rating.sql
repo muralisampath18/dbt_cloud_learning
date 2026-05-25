@@ -1,0 +1,15 @@
+{{ config(
+    schema='gold',
+    materialized='table',
+    alias ='dbt_gold_daily_avg_rating'
+) }}
+
+SELECT
+    date(date_format(r.created_at, 'yyyy-MM-dd')) as review_date,
+    r.product_id,
+    p.product_name,
+    avg(r.rating) as avg_rating
+FROM {{ ref('raw_reviews') }} r 
+LEFT JOIN {{ ref('silver_products') }} p 
+ON r.product_id = p.id
+group by all
