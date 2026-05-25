@@ -1,9 +1,31 @@
 sources:
   - name: landing
-    database: dcp_dev_eu  
-    schema: dcp_bronze  
+    database: dcp_dev_eu
+    schema: dcp_bronze
+    config:
+      loaded_at_field: created_at
+      freshness:
+        warn_after:
+          count: 3650
+          period: day
     tables:
       - name: orders
+        description: Orders data
+        config:
+          loaded_at_field: created_at
+          freshness:
+            warn_after:
+              count: 365
+              period: day
       - name: products
+        description: Products data
+        config:
+          loaded_at_field: created_at
+          freshness:
+            warn_after:
+              count: 365
+              period: day
       - name: reviews
       - name: users
+        config: 
+          freshness: null
