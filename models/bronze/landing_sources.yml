@@ -54,11 +54,11 @@ sources:
           - assest_non_negative_check:
               arguments: 
                 column_names: ["id", "product_id", "rating"]
-                min_value: 1000
+                min_value: 0
                 config: 
                   severity: warn
                   alias: users_non_negative_check
-                  
+
       - name: users
         columns:
           - name: id
