@@ -18,9 +18,16 @@ models:
                 severity: warn
 
   - name: raw_orders
+    tests:
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          arguments: 
+            column_list: ["id", "users_ID"]
+          config: 
+            severity: warn
     columns:
       - name: quantity
         tests:
           - dbt_utils.expression_is_true:
               arguments: 
                 expression: ">-1"
+            
