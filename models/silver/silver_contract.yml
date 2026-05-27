@@ -1,0 +1,22 @@
+models:
+  - name: silver_orders
+    config: 
+      contract: 
+        enforced: true
+    columns:
+      - name: id
+        data_type: bigint
+      - name: order_date
+        data_type: date
+      - name: user_id
+        data_type: bigint
+      - name: product_id
+        data_type: bigint
+      - name: quantity
+        data_type: int
+      - name: unit_price
+        data_type: decimal(34,0)
+      - name: order_amount
+        data_type: numeric(38,6)
+        constraints:
+          - type: not_null
