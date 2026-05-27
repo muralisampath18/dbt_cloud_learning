@@ -22,6 +22,12 @@ sources:
                   config:
                     severity: warn
                     error_if: "<0"
+
+          - name: quantity
+            tests:
+              - dbt_utils.expression_is_true:
+                  arguments: 
+                    expression: ">0"
               
         config:
           loaded_at_field: created_at
@@ -68,3 +74,4 @@ sources:
 
         config: 
           freshness: null
+
