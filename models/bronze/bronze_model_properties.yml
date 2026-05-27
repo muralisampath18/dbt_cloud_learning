@@ -11,8 +11,9 @@ models:
       - name: id
         tests:
           - relationships:
-              to: ref('raw_orders')
-              field: product_id
+              arguments: 
+                to: ref('raw_orders')
+                field: product_id
               config:
                 severity: warn
 
