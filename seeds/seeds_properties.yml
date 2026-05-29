@@ -1,0 +1,17 @@
+seeds:
+  - name: product_catagories
+    description: "product categories lists"
+    config:
+      schema: seed_data
+      enabled: true
+      column_types:
+        category_id: int
+        category_name: string
+        description: string
+        typical_usage: string
+    columns:
+      - name: category_id
+        tests:
+          - unique:
+              config:
+                severity: warn

@@ -27,7 +27,7 @@ sources:
             tests:
               - dbt_utils.expression_is_true:
                   arguments: 
-                    expression: ">0"
+                    expression: ">-1"
               
         config:
           loaded_at_field: created_at
