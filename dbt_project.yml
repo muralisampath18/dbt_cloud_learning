@@ -51,3 +51,7 @@ data_tests:
   +store_failures: false
   +schema: test_failure
 
+seeds:
+  dbt_databricks_project:
+    +schema: bronze
+
