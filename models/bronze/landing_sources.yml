@@ -76,3 +76,5 @@ sources:
         config: 
           freshness: null
 
+      - name: orders_incremental
+        description: This is orders incremental tables
