@@ -1,7 +1,7 @@
 {{ config(
     schema='silver',
     materialized='table',
-    alias ='dbt_silver_orders'
+    alias='dbt_silver_orders'
 ) }}
 
 select 
@@ -11,5 +11,5 @@ select
     product_id,
     quantity,
     unit_price,
-    quantity * unit_price as order_amount
-from {{ref("raw_orders")}}
+    {{ round(multiple_columns(['quantity','unit_price']), 4) }} as order_amount
+from {{ ref("raw_orders") }}
