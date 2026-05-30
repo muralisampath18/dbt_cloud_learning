@@ -39,6 +39,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_databricks_project:
+    
+    # +post-hook:
+    #    - "{{ insert_audit_record(this.name, 'Completed') }}"
     # Applies to all files under models/example/
     example:
       +materialized: table
@@ -54,4 +57,6 @@ data_tests:
 seeds:
   dbt_databricks_project:
     +schema: bronze
+
+# on-run-start: "{{ create_audit_table() }}"
 
