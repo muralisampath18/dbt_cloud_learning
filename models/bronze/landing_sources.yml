@@ -1,0 +1,80 @@
+sources:
+  - name: landing
+    database: dcp_dev_eu
+    schema: dcp_bronze
+    # Default config will apply to all the tables
+    config:
+      loaded_at_field: created_at
+      freshness:
+        warn_after:
+          count: 3650
+          period: day
+    tables:
+      - name: orders
+        description: Orders data
+        columns:
+          - name: id
+            tests:        
+              - unique
+              - not_null
+          - name: product_id
+            tests:
+              - unique:
+                  config:
+                    severity: warn
+                    error_if: "<0"
+
+          - name: quantity
+            tests:
+              - dbt_utils.expression_is_true:
+                  arguments: 
+                    expression: ">-1"
+              
+        config:
+          loaded_at_field: created_at
+          freshness:
+            warn_after:
+              count: 365
+              period: day
+      - name: products
+        description: Products data
+        columns:
+          - name: id
+            tests:        
+              - unique:
+                  config:
+                    severity: warn
+              - not_null
+        config:
+          loaded_at_field: created_at
+          freshness:
+            warn_after:
+              count: 365
+              period: day
+      - name: reviews
+        columns:
+          - name: id
+            tests:        
+              - unique
+              - not_null
+        tests:
+          - assest_non_negative_check:
+              arguments: 
+                column_names: ["id", "product_id", "rating"]
+                min_value: 0
+                config: 
+                  severity: warn
+                  alias: users_non_negative_check
+
+      - name: users
+        columns:
+          - name: id
+            tests:        
+              - unique
+              - not_null
+
+        config: 
+          freshness: null
+
+      - name: orders_incremental
+        description: This is orders incremental tables
