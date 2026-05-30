@@ -5,7 +5,9 @@
     where
         {% for col in column_names %}
             {{ col }} < {{ min_value }}
-            {% if not loop.last %} or {% endif %}
+                {% if not loop.last %} 
+                    or 
+                {% endif %}
         {% endfor %}
 
 {% endtest %}
