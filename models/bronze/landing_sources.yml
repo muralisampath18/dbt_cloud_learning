@@ -1,6 +1,7 @@
 sources:
   - name: landing
-    database: dcp_dev_eu
+    database: |
+      {{target.name}}
     schema: dcp_bronze
     # Default config will apply to all the tables
     config:
