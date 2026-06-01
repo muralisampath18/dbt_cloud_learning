@@ -1,6 +1,7 @@
 sources:
   - name: landing
-    database: dcp_dev_eu
+    database: |
+      {{target.name}}
     schema: dcp_bronze
     # Default config will apply to all the tables
     config:
@@ -14,6 +15,7 @@ sources:
         description: Orders data
         columns:
           - name: id
+            description: '{{ doc ("orders_id")}}'
             tests:        
               - unique
               - not_null
