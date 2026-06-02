@@ -9,3 +9,6 @@
 
 {# schema name#}
 {{target.schema}}
+
+{# Environmental variable#}
+{{ env_var('DBT_LANDING_SCHEMA')}}

@@ -1,0 +1,7 @@
+selectors:
+  - name: orders_pipeline
+    definition:
+      method: fqn
+      value: active_orders
+      parents: true
+      children: true
