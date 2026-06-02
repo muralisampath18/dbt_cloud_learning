@@ -18,6 +18,7 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+log-path: logs
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
@@ -58,5 +59,8 @@ seeds:
   dbt_databricks_project:
     +schema: bronze
 
-# on-run-start: "{{ create_audit_table() }}"
+on-run-start:
+  # - "{{ create_audit_table() }}"
+  - "{{ audit_logging() }}"
+
 

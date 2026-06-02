@@ -1,0 +1,14 @@
+functions:
+  - name: sales_percentages       # required
+    description: My UDF that returns 1 if a string represents a naked positive integer (like "10", "+8" is not allowed). # optional
+    config:
+      schema: bronze
+    arguments:                  # optional
+      - name: numerator          # required if arguments is specified
+        data_type: DOUBLE       # required if arguments is specified
+        description: The string that I want to check if it's representing a positive integer (like "10") 
+      - name: denominator          # required if arguments is specified
+        data_type: DOUBLE       # required if arguments is specified
+        description: The string that I want to check if it's representing a positive integer (like "10") 
+    returns:                    # required
+      data_type: DOUBLE        # required
