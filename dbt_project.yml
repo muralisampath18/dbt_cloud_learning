@@ -52,7 +52,7 @@ models:
       +schema: gold
 
 data_tests: 
-  +store_failures: true
+  +store_failures: false
   +schema: test_failure
 
 seeds:
