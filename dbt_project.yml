@@ -24,6 +24,7 @@ target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target/compiled/my_new_project"
   - "target/run/my_new_project"
+  - "target"
 
   # - "dbt_packages"
 
