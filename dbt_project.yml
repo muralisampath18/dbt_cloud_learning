@@ -64,4 +64,6 @@ on-run-start:
   # - "{{ create_audit_table() }}"
   - "{{ audit_logging() }}"
 
+flags: 
+  +fail-fast: true
 

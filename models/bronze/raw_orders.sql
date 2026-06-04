@@ -5,7 +5,8 @@
     alias ='dbt_raw_orders',
     grants = {
         'select': 'dbt_user'
-    }
+    },
+    enabled = True
 ) }}
 
 select *
